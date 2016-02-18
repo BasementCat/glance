@@ -1,0 +1,20 @@
+#!/usr/bin/python
+
+from glance.collectors.cpu import CPUInfo, Load
+from glance.collectors.crypto import Crypto
+from glance.collectors.filesystem import FilesystemList
+from glance.collectors.kernel import LoadedModules, Uptime
+from glance.collectors.disk import Stats as DiskStats, Mounts, Swaps
+from glance.collectors.memory import MemInfo
+
+i = CPUInfo()
+i = Crypto()
+i = FilesystemList()
+i = LoadedModules().collect()
+i = DiskStats().collect()
+i = Load().collect()
+i = MemInfo().collect()
+i = Mounts().collect()
+i = Swaps().collect()
+i = Uptime().collect()
+print i.export()
